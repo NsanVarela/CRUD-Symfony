@@ -1,0 +1,3 @@
+ac_platform:
+    resource: "@AcPlatformBundle/Resources/config/routing.yml"
+    prefix: /

@@ -1,0 +1,51 @@
+defaut:
+  path:  /
+  defaults: {_controller: AcPlatformBundle:Default:index}
+
+stock:
+  path:  /{entreprise}/{produit}/{numero}
+  defaults: {_controller: AcPlatformBundle:Stock:index, numero: 4}
+  requirements:
+    entreprise: 3wa
+    produit: \d{4}
+
+platform:
+  path:  /{platform}/{annee}/{lien}
+  defaults: {_controller: AcPlatformBundle:Platform:index, platform: platform}
+  requirements:
+    annee: 2018|2019
+
+tableau:
+  path:  /{tableau}/{nombre1}/{nombre2}
+  defaults: {_controller: AcPlatformBundle:Tableau:index, tableau: tableau}
+  requirements:
+    nombre1: \d{3}
+    nombre2: \d{3}
+
+ac_platform_prenom:
+  path:  /ac_platform_prenom/{prenom}
+  defaults: {_controller: AcPlatformBundle:Default:prenom, prenom: prenom}
+
+ac_platform_personne:
+  path:  /ac_platform_personne/arrayMe
+  defaults: {_controller: AcPlatformBundle:Default:personne}
+
+redirect:
+  path:  /
+  defaults: {_controller: AcPlatformBundle:Default:redirect}
+
+ac_platform_createProduct:
+    path:  /product/create
+    defaults: {_controller: AcPlatformBundle:Product:create}
+  
+ac_platform_removeProduct:
+    path:  /product/remove/{id}
+    defaults: {_controller: AcPlatformBundle:Product:remove}
+
+ac_platform_getProduct:
+    path:  /product/show/products
+    defaults: {_controller: AcPlatformBundle:Product:getProduct}
+
+ac_platform_updateProduct:
+    path:  /product/update/product/{id}
+    defaults: {_controller: AcPlatformBundle:Product:update}

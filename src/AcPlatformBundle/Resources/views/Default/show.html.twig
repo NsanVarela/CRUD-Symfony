@@ -1,0 +1,39 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+{# {{dump(data)}} #}
+
+{% for message in app.flashes('notice') %}
+    <div class="flash-notice">
+        {{ message }}
+    </div>
+{% endfor %}
+
+<table>
+    <caption>All our last release</caption>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">TVA</th>
+        <th scope="col">Description</th>
+    </tr>
+        {% for data in datas %}
+    <tr>
+        <td>{{ data.name|upper }}</td>
+        <td>{{ data.price }}$</td>
+        <td>{{ data.tva }}%</td>
+        <td>{{ data.description }}</td>
+        <td><a href="{{ path('ac_platform_updateProduct', { 'id': data.id }) }}">Edit</a></td>
+        <td><a href="{{ path('ac_platform_removeProduct', { 'id': data.id }) }}">Delete</a></td>
+    </tr>
+        {% endfor %}
+</table>
+
+<a href="{{ path('ac_platform_createProduct') }}">
+    Click for add
+</a>
+<br>
+
+
+{% endblock %}
